@@ -1,24 +1,27 @@
-const pokemon = require('../services/pokemon');
-const controller = {}
+const pokemon = require("../services/pokemon");
+const controller = {};
 
 controller.getPokemon = async(req, res) => {
+    const data = await pokemon.show();
 
-    const data = await pokemon.show()
-
-    res.send(data);
-}
+    res.json(data);
+};
 
 controller.getMetaData = async(req, res) => {
-
-    const data = await pokemon.superMetaData()
+    const data = await pokemon.superMetaData();
     res.send(data);
-}
+};
 
 controller.insertPokemon = async(req, res) => {
-
-    const data = await pokemon.save(req)
+    const data = await pokemon.save(req);
 
     res.status(200).send(data);
-}
+};
 
-module.exports = controller
+controller.releasePokemon = async(req, res) => {
+    const data = await pokemon.destroy(req);
+
+    res.status(200).send(data);
+};
+
+module.exports = controller;
