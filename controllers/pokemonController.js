@@ -1,4 +1,12 @@
-const pokemon = require("../services/pokemon");
+const DATA_SOURCES = require('../config/vars.config')
+
+let pokemon;
+if (DATA_SOURCES.workingDB == "MYSQL") {
+    pokemon = require("../MySQL/services/pokemon");
+} else {
+    pokemon = require("../Mongo/services/pokecatcher");
+}
+
 const controller = {};
 
 controller.getPokemon = async(req, res) => {
