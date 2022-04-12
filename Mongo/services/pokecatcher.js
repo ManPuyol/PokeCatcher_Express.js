@@ -3,9 +3,7 @@ const pokecatcher = require('../models/pokecatcher')
 async function show() {
     const data = await pokecatcher.find()
 
-    return {
-        data,
-    };
+    return data;
 }
 
 async function save(req) {

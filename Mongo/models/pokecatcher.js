@@ -12,7 +12,14 @@ const pokecatcher = new Schema({
     //     votes: Number,
     //     favs: Number
     // }
-    Tuma: String
+    clave: String,
+    image: String,
+    backgroundImage: String,
+    sprite: String,
+    description: String,
+    ability: String,
+    type1: String,
+    type2: String,
 })
 
 module.exports = mongoose.model('pokecatcher', pokecatcher)
